@@ -12,15 +12,17 @@ schema:
     - Rime schema by Jeff Chien <jeffchien13@gmail.com>
   description: |
     小鶴雙拼加速成補助方案
-  dependencies:
-    - bopomofo_tw
+
 
 speller:
-  alphabet: zyxwvutsrqponmlkjihgfedcba
+  delimiter: "|"
+  alphabet: zyxwvutsrqponmlkjihgfedcba'
   algebra:
-    - derive/^(..).+$/$1/
+    - derive/^(\w\w)'(\w\w)$/$1$2/
+    - derive/^(\w\w)'\w\w$/$1/
+    # - derive/^(..).+$/$1/
     # this is a very aggresive pattern, sometimes need to type ' to help rime to correctly pick candidate. or just comment it.
-    - derive/^(...).+$/$1/
+    # - derive/^(...).+$/$1/
 
 templates:
   quick5:
@@ -39,16 +41,7 @@ translator:
     __include: templates/quick5/preedit_format
   comment_format:
     __include: templates/quick5/comment_format
-  __patch:
-    preedit_format/+:
-      __include: flypy_luna.schema:/templates/flypy_2_bopomofo/preedit_format
 
-reverse_lookup_flypy:
-  tags: [translator_bopomofo_tw]
-  overwrite_comment: true
-  dictionary: flypy_quick5
-  comment_format:
-    __include: templates/quick5/comment_format
 
 __patch:
   - flypy_quick5.custom:/patch?
