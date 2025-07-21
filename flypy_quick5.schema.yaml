@@ -27,10 +27,10 @@ speller:
 templates:
   quick5:
     preedit_format:
-      - 'xform/((?<=[a-z]{2})[a-z]{1,2})/\U$1\E/'
+      - 'xform/((?<=[a-z]{2})[a-z]{2})/\U$1\E/'
       - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符|"
     comment_format:
-      - 'xform/((?<=[a-z]{2})[a-z]{1,2})/\U$1\E/'
+      - 'xform/((?<=[a-z]{2})[a-z]{2})/\U$1\E/'
       - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符|"
 
 translator:

@@ -1,0 +1,37 @@
+# flypy_quick5.custom.yaml
+# 在 flypy_quick5 中啟用 latex 輸入的配置 (修正版)
+
+patch:
+  # 1. 將 `\` 符號加入 speller 的字母表，這樣才能夠輸入
+  speller/alphabet: 'zyxwvutsrqponmlkjihgfedcba''\\'
+
+  # 2. 引用 latex.schema.yaml 中定義好的 translator
+  # 並加上觸發符號等設定
+  translator_latex:
+    __include: latex.schema:/translator
+    tag: translator_latex
+    prefix: '\\'
+    suffix: ' '
+    tips: 'L'
+
+  # 3. 將 latex translator 加入到翻譯器列表中
+  # 注意：這裡是「覆蓋」整個列表，需要把原有的翻譯器也一併列出
+  engine/translators:
+    - punct_translator
+    - table_translator@translator_cangjie5
+    - table_translator@translator_latex # 新增的 latex 翻譯器
+    - script_translator
+
+  # 4. 將 latex segmentor 加入到分詞器列表中
+  # 注意：這裡是「覆蓋」整個列表，需要把原有的分詞器也一併列出
+  engine/segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - affix_segmentor@translator_cangjie5
+    - affix_segmentor@translator_latex # 新增的 latex 分詞器
+    - punct_segmentor
+    - fallback_segmentor
+
+  # 5. 設定觸發規則，當輸入以 \ 開頭時，啟用 latex translator
+  recognizer/patterns/translator_latex: "^\\\\.+$"
