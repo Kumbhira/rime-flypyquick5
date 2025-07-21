@@ -12,6 +12,7 @@ schema:
     朙月拼音＋小鶴雙拼方案。
   dependencies:
     - cangjie5
+    - latex
 
 switches:
   - name: ascii_mode
@@ -19,10 +20,11 @@ switches:
     states: [中文, 西文]
   - name: full_shape
     states: [半角, 全角]
+  - name: simplification
+    reset: 0
+    states: [漢字, 汉字]
   - name: ascii_punct
     states: [。，, ．，]
-  - name: zh_hant_tw
-    reset: 1
 
 engine:
   processors:
@@ -48,15 +50,14 @@ engine:
     - script_translator
   filters:
     - simplifier
-    - simplifier@zh_hant_tw
     - reverse_lookup_filter@reverse_lookup_flypy
     - uniquifier
 
 # add menu option to use TW Chinese
-zh_hant_tw:
-  option_name: zh_hant_tw
-  opencc_config: t2tw.json
-  tips: none
+simplifier:
+  opencc_config:
+  __default__: t2tw.json
+  simplification/汉字: t2s.json
 
 translator_cangjie5:
   __include: cangjie5.schema:/translator
@@ -220,7 +221,6 @@ recognizer:
   patterns:
     punct: '^/([0-9]0?|[A-Za-z]+)$'
     translator_cangjie5: "`c[a-z]*'?$"
-    translator_cangjie5_phonetic: "`p[a-z]*'?$"
 
 editor:
   bindings:

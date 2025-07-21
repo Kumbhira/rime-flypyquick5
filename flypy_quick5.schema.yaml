@@ -5,7 +5,7 @@ __include: flypy_luna.schema:/
 
 schema:
   schema_id: flypy_quick5
-  name: 小鶴雙拼+速成
+  name: 小鶴速成
   version: "0.0.3"
   author:
     - double pinyin layout by 鶴
