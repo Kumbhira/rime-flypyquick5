@@ -1,0 +1,23 @@
+# default.custom.yaml
+# save it to:
+#   ~/.config/ibus/rime  (linux)
+#   ~/Library/Rime       (macos)
+
+patch:
+    schema_list:
+        - schema: flypy_quick5
+    switcher/hotkeys:
+        - Control+grave
+    ascii_composer/good_old_caps_lock: true
+    ascii_composer/switch_key:
+        Caps_Lock: clear
+        Shift_L: commit_code
+        Shift_R: inline_ascii
+    key_binder/bindings:
+        - { when: has_menu, accept: Tab, send: "'" }
+        - { when: paging, accept: comma, send: Up }
+        - { when: has_menu, accept: period, send: Down }
+        - { when: paging, accept: bracketleft, send: Page_Up }
+        - { when: has_menu, accept: bracketright, send: Page_Down }
+        # - { when: paging, accept: comma, send: Page_Up }
+        # - { when: has_menu, accept: period, send: Page_Down }
