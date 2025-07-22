@@ -1,0 +1,9 @@
+build/
+*.userdb/
+sync/
+installation.yaml
+user.yaml
+fcitx.yaml
+fcitx5.yaml
+weasel.yaml
+squirrel.yaml
