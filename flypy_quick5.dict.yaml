@@ -34,15 +34,16 @@ use_preset_vocabulary: true
 
 ...
 裏	li'yv	1%
-裡	li'lg	1000%
+裡	li'lg	100%
 着	ve'tu	2%
 着	vc'tu	1%
 着	vo'tu	1%
-著	ve'ta	1000%
-著	vc'ta	950%
+著	ve'ta	100%
+著	vc'ta	95%
+著	vu'ta	95%
 著	vo'ta	2%
 爲	ww'bf	1%
-為	ww'if	1000%
+為	ww'if	100%
 〇	lk'xr
 〇	lk'xx
 ㄓ	vi'yo
