@@ -12,21 +12,14 @@ schema:
     朙月拼音＋小鶴雙拼方案。
   dependencies:
     - cangjie5
-    - latex
 
 switches:
   - name: simplification
     reset: 0
     states: [漢字, 汉字]
-  - name: extended_charset
-    reset: 0
-    states: [通用, 增廣]
   - name: full_shape
     reset: 0
     states: [半角, 全角]
-  - name: ascii_punct
-    reset: 0
-    states: [句讀, 符號]
   - name: ascii_mode
     reset: 0
     states: [中文, 西文]
